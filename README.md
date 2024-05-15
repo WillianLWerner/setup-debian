@@ -1,7 +1,7 @@
 # Configuração inicial do Debian
 
 ## Sumário
-  1. [Programas necessários](#1-progrmas-necessários)
+  1. [Programas necessários](#1-programas-necessários)
   2. [Instalação e execução do script](#2-instalação-e-execução-do-script)
 
 # 1. Programas necessários
