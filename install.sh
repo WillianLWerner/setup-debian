@@ -19,11 +19,12 @@ adduser root sudo
 apt install net-tools
 
 # Ativação do programa TRIM para seu SSD
-echo '#!/bin/sh' > "$arquivo"
-echo 'LOG=/var/log/trim.log' >> "$arquivo"
-echo 'echo "*** $(date -R) ***" >> $LOG' >> "$arquivo"
-echo 'fstrim -v / >> $LOG' >> "$arquivo"
-echo 'fstrim -v /home >> $LOG' >> "$arquivo"
+trim="/etc/cron.daily/trim"
+echo '#!/bin/sh' > "$trim"
+echo 'LOG=/var/log/trim.log' >> "$trim"
+echo 'echo "*** $(date -R) ***" >> $LOG' >> "$trim"
+echo 'fstrim -v / >> $LOG' >> "$trim"
+echo 'fstrim -v /home >> $LOG' >> "$trim"
 chmod +x /etc/cron.daily/trim
 
 # Configuração dos parâmetros de swapiness e cache
