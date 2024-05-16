@@ -2,7 +2,7 @@
 set -e
 
 # Adiciçã da arquitetura 32 bits ao sistema
-dpkg --add-architecture i386 
+dpkg --add-architecture i386
 apt update
 
 # Ativação da configuração de completar o nome dos pacotes na instalação via apt
