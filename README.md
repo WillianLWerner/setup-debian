@@ -16,7 +16,7 @@ apt install wget
 
 ```bash
 cd /tmp
-wget https://github.com/WillianLWerner/setup-debian.git/setup.sh -O setup.sh
+wget https://raw.githubusercontent.com/WillianLWerner/setup-debian/main/install.sh -O setup.sh
 chmod +x setup.sh
 ./setup.sh
 ```
