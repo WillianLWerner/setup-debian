@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Adiciçã da arquitetura 32 bits ao sistema
 dpkg --add-architecture i386
