@@ -14,18 +14,19 @@ source "$bashrc"
 # Instalação do pacote sudo no sistema
 apt install sudo
 adduser root sudo
+adduser willian sudo
 
 # Instalação do pacote para o regenciamento da rede pelo terminal
 apt install net-tools
 
 # Ativação do programa TRIM para seu SSD
-trim="/etc/cron.daily/trim"
-echo '#!/bin/sh' > "$trim"
-echo 'LOG=/var/log/trim.log' >> "$trim"
-echo 'echo "*** $(date -R) ***" >> $LOG' >> "$trim"
-echo 'fstrim -v / >> $LOG' >> "$trim"
-echo 'fstrim -v /home >> $LOG' >> "$trim"
-chmod +x /etc/cron.daily/trim
+#trim="/etc/cron.daily/trim"
+#echo '#!/bin/sh' > "$trim"
+#echo 'LOG=/var/log/trim.log' >> "$trim"
+#echo 'echo "*** $(date -R) ***" >> $LOG' >> "$trim"
+#echo 'fstrim -v / >> $LOG' >> "$trim"
+#echo 'fstrim -v /home >> $LOG' >> "$trim"
+#chmod +x /etc/cron.daily/trim
 
 # Configuração dos parâmetros de swapiness e cache
 sysctl="/etc/sysctl.conf"
