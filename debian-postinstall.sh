@@ -80,10 +80,10 @@ source "$BASH"
 trim(){
 systemctl enable fstrim.timer
 systemctl restart fstrim.timer
-echo "#!/bin/sh" >> $TRIM
-echo "set -e" >> $TRIM
-echo 'echo "*** $(date -R) ***" >> $LOG' >> $TRIM
-echo "fstrim -v / >> $LOG" >> $TRIM
+echo "#!/bin/sh" >> "$TRIM"
+echo "set -e" >> "$TRIM"
+echo 'echo "*** $(date -R) ***" >> $LOG' >> "$TRIM"
+echo "fstrim -v / >> $LOG" >> "$TRIM"
 sudo chmod +x /etc/cron.daily/trim
 }
 
