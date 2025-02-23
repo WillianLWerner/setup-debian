@@ -26,6 +26,7 @@ SWAPPINESS="/etc/sysctl.conf"
 PROGRAMAS_PARA_INSTALAR=(
   sudo
   bash-completion
+  fwupd
   systemd-oomd
   zram-tools
 
@@ -76,3 +77,8 @@ source "$BASH"
 
 ## Configuração do ZRAM
 zram(){
+
+## Limpeza do sistema
+limpar_sistema(){
+sudo apt autoclean -y
+sudo apt clean -y
