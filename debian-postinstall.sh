@@ -108,3 +108,22 @@ if [ -f "$ZRAM" ]; then
 limpar_sistema(){
 sudo apt autoclean -y
 sudo apt clean -y
+}
+
+# ------------------------------------------------------------------------------ #
+# Execução
+testes_internet
+travas_apt
+apt_update
+install_apt
+bash_completion
+trim
+swappiness
+systemd_oomd
+zram
+apt_update
+limpar_sistema
+
+# ------------------------------------------------------------------------------ #
+# Finalização
+echo -e "${VERDE}[INFO] - Script finalizado, instalação concluída! :)${SEM_COR}"
