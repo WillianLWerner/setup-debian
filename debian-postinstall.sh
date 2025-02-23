@@ -19,8 +19,9 @@ SEM_COR='\e[0m'
 
 ## Arquivos
 BASH="/etc/bash.bashrc"
-ZRAM="/etc/default/zramswap"
 SWAPPINESS="/etc/sysctl.conf"
+TRIM="/etc/cron.daily/trim"
+ZRAM="/etc/default/zramswap"
 
 ## Programas
 PROGRAMAS_PARA_INSTALAR=(
@@ -75,8 +76,33 @@ bash_completion(){
 sed -i '35,41s/^#//' "$BASH"
 source "$BASH"
 
+## Ativação do TRIM
+trim(){
+systemctl enable fstrim.timer
+systemctl restart fstrim.timer
+echo "#!/bin/sh" >> $TRIM
+echo "set -e" >> $TRIM
+echo 'echo "*** $(date -R) ***" >> $LOG' >> $TRIM
+echo "fstrim -v / >> $LOG" >> $TRIM
+sudo chmod +x /etc/cron.daily/trim
+}
+
+## Configuração da swappiness
+swappiness(){
+echo 'vm.swappiness=10' >> "$SWAPPINESS"
+}
+
+systemd_oomd(){
+systemctl enable systemd-oomd
+systemctl restart systemd-oomd
+}
+
 ## Configuração do ZRAM
 zram(){
+if [ -f "$ZRAM" ]; then
+  sed -i 's/^#ALGO=lz4/ALGO=lz4/' "$ZRAM"
+  sed -i 's/^#PERCENTAGE=50/PERCENTAGE=50/' "$ZRAM"
+}
 
 ## Limpeza do sistema
 limpar_sistema(){
